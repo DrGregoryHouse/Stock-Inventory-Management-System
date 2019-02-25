@@ -1,0 +1,144 @@
+﻿@{
+    ViewBag.Title = "Delete";
+
+}
+
+@using StockInventorySystem.Models
+<link type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+@model Sell
+<h2 align="center">Delete Customer Invoice Sheet</h2>
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <table>
+            <tr>
+
+                <td>@Html.LabelFor(m => m.BillNo)</td>
+                <td>@Html.DropDownListFor(m => m.BillNo, new SelectList(ViewBag.BillNo, "BillNo", "BillNo"), "Select ", new { @class = "form-control" })</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.Name)</td>
+                <td>@Html.TextBoxFor(m => m.Name, new { @class = "form-control", @readonly = "readonly" })</td>
+
+            </tr>
+            <tr>
+
+                <td>@Html.LabelFor(m => m.Date)</td>
+                <td>@Html.TextBoxFor(m => m.Date, new { @class = "form-control", @placeholder = "Pick a Date", @readonly = "readonly" })</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.MobileNo)</td>
+                <td>@Html.TextBoxFor(m => m.MobileNo, new { @class = "form-control", @readonly = "readonly" }) </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.Email)</td>
+                <td>@Html.TextBoxFor(m => m.Email, new { @class = "form-control", @readonly = "readonly" }) </td>
+            </tr>
+
+        </table>
+        <table id="" class="display table table-bordered table-hover" cellspacing="1">
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Qty</th>
+                    <th>Price</th>
+                    <th>Amount</th>
+
+                </tr>
+            </thead>
+
+            <tbody id="tableBody"></tbody>
+
+        </table>
+        @Html.LabelFor(m => m.TotalAmount)
+        @Html.TextBoxFor(m => m.TotalAmount, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    @Html.HiddenFor(m => m.Id)
+    <div style="padding: 10px 0px; text-align: center">
+        <button type="submit" class="btn btn-primary" value="save" style="width: 110px;" onclick="return Assure()">Delete</button>
+    </div>
+    
+}
+@if (ViewBag.Message == "Yes")
+{
+
+    <div class="alert alert-success">
+        <h4>Successfully deleted.</h4>
+    </div>
+}
+else if (ViewBag.Message == "No")
+{
+    <div class="alert alert-success">
+        <h4>Failed To Delete.</h4>
+    </div>
+}
+@section scripts
+{
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+    <script>
+        function Assure() {
+            return confirm(" Are you Sure to delete?");
+
+        }
+    </script>
+    <script>
+
+        $(document).ready(function () {
+
+
+            $("#BillNo").change(function () {
+                var billNo = $("#BillNo").val();
+                $("#Email").val("");
+                $("#MobileNo").val("");
+                $("#Date").val("");
+                $("#Name").val("");
+                $("#TotalAmount").val("");
+                $("#Id").val("");
+                $("#tableBody").empty();
+                var json = { billNo: billNo };
+                $.ajax({
+                    type: "POST",
+
+                    url: '/Sell/GetAllSellItem',
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(json),
+                    success: function (data) {
+                        $.each(data, function (key, value) {
+
+                            //$("#CarringCharge").val(value.CarringCharge);
+                            $("#Date").val(toJavaScriptDate(value.Date));
+                            $("#MobileNo").val(value.MobileNo);
+                            $("#Email").val(value.Email);
+                            $("#Name").val(value.Name);
+                            $("#Id").val(value.Id);
+                            $("#TotalAmount").val(value.TotalAmount);
+                            for (var i = 0; i < value.SellItemses.length; i++) {
+                                $("#tableBody").append('<tr><td>' + value.SellItemses[i].ItemName + '</td><td>' + value.SellItemses[i].Qty + '</td><td>' + value.SellItemses[i].Price + '</td><td>' + value.SellItemses[i].Amount + '</td></tr>');
+                            }
+
+                        });
+
+                    }
+                });
+            });
+
+            function toJavaScriptDate(value) {
+                var pattern = /Date\(([^)]+)\)/;
+                var results = pattern.exec(value);
+                var dt = new Date(parseFloat(results[1]));
+                return (dt.getMonth() + 1) + "/" + dt.getDate() + "/" + dt.getFullYear();
+            }
+        });
+
+    </script>
+
+}
+
+
+
+
+

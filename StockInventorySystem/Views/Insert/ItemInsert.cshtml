@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "ItemInsert";
+}
+@using StockInventorySystem.Models
+@model Item
+<h2 align="center">Item Insert</h2>
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.ItemName)
+        @Html.TextBoxFor(m => m.ItemName, new {@class = "form-control"})
+        @Html.ValidationMessageFor(m => m.ItemName)
+        <br/>
+        <input type="submit" id="add" value="Add" class="btn btn-primary" style="padding: 10px 30px"/>
+    </div>
+}
+@if (ViewBag.msg=="Yes")
+{
+    <div class="alert alert-success">
+        <h4>Insert Successfully.</h4>
+    </div>
+}
+else if (ViewBag.msg=="Exists")
+{
+    <div class="alert alert-danger">
+        <h4>Failed!! Already Exists.</h4>
+    </div>
+}
+else if (ViewBag.msg == "No")
+{
+    <div class="alert alert-danger">
+        <h4>Failed!!</h4>
+    </div>
+}
+    <div class="form-group">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        Item Name
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (Item aItem in @ViewBag.Item)
+                {
+                    <tr>
+                        <td>@aItem.ItemName</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+@section scripts
+{
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+}

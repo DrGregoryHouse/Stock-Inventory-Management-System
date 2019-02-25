@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "Sell GeneratePdfPreview";
+    Layout = null;
+}
+@using StockInventorySystem.Models
+@model StockInventorySystem.Models.Sell
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Sell GeneratePdf</title>
+
+    <link href="~/Content/Style.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body style="width: 21cm; height: 30cm; margin-left: 40px; background-color: white">
+    <h2 align="center">MKS Company</h2>
+    <p align="center">
+        Address: 166/168, College road, Chawkbazar, Chittagong.
+        <br />
+        Cell: 01822-514977
+    </p>
+    <hr />
+    <div>
+        <table>
+            <tr>
+                <td>Bill No:</td>
+                <td style="font-weight: bold">: @ViewBag.Id</td>
+            </tr>
+
+            <tr>
+                <td>Name:</td>
+                <td style="font-weight: bold">: @ViewBag.Sell.Name</td>
+            </tr>
+            <tr>
+                <td>Date:</td>
+                <td style="font-weight: bold">: @ViewBag.Sell.Date</td>
+            </tr>
+            <tr>
+                <td>Mobile No:</td>
+                <td style="font-weight: bold">: @ViewBag.Sell.MobileNo</td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td style="font-weight: bold">: @ViewBag.Sell.Email</td>
+            </tr>
+        </table>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Qty</th>
+                    <th>Price</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (SellItems sellItem in ViewBag.Sell.SellItemses)
+                {
+                    <tr>
+                        <td>@sellItem.ItemName</td>
+                        <td>@sellItem.Qty</td>
+                        <td>@sellItem.Price</td>
+                        <td>@sellItem.Amount</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+        <p> Total Amount:<b>@ViewBag.Sell.TotalAmount</b></p>
+        <br />
+        <br />
+        <h6 style="text-align: right">Date:@DateTime.Now</h6>
+        ______________________<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Signature
+    </div>
+</body>
+</html>

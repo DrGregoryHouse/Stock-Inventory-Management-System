@@ -1,0 +1,304 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+@using StockInventorySystem.Models
+@model StockInventorySystem.Models.Purchase
+
+<link type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+
+
+<h2 align="center">Stock Item From Supplier</h2>
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <h4>Order details</h4>
+        <table>
+            <tr>
+                <td>@Html.LabelFor(m => m.InvoiceNo):&nbsp;</td>
+                <td>@Html.TextBoxFor(m => m.InvoiceNo, new { @class = "form-control", @readonly = "readonly", Value = ViewBag.InvoiceNo, type = "string" })</td>
+
+
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>@Html.LabelFor(m => m.BillDate):&nbsp;</td>
+                <td>@Html.TextBoxFor(m => m.BillDate, new { @class = "form-control", @placeholder = "Pick a Date", @readonly = "readonly" })</td>
+
+
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>@Html.LabelFor(m => m.SupplierId):&nbsp;</td>
+                <td>
+                    @Html.DropDownListFor(m => m.SupplierId, new SelectList(ViewBag.Supplier, "Id", "SupplierName"), "Select ", new { @class = "form-control" })
+                <span class="error">Supplier name required</span>
+            </td>
+        </tr>
+
+        <tr>
+            <td>@Html.LabelFor(m => m.ReceiverDate):&nbsp;</td>
+            <td>
+                @Html.TextBoxFor(m => m.ReceiverDate, new { @class = "form-control", @placeholder = "Pick a Date", @readonly = "readonly" })
+            <span class="error">Carrying Charge required</span>
+        </td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(m => m.CarringCharge):&nbsp;</td>
+        <td>
+            @Html.TextBoxFor(m => m.CarringCharge, new { @class = "form-control" })
+        <span class="error">Carrying Charge required</span>
+    </td>
+</tr>
+</table>
+</div>
+    <div class="details">
+        <h4>Order Items</h4>
+        <div>
+            <table width="100%">
+                <tr>
+                    <th>Item Name</th>
+                    <th>Qty</th>
+                    <th>Price</th>
+                    <th>&nbsp;</th>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="ItemName" class="form-control">
+
+                            @foreach (Item option in ViewBag.Items)
+                            {
+                                <option value="@option.ItemName" @(option.Id == ViewBag.ValueToSet ? "selected='selected'" : "")>@option.ItemName</option>
+
+                            }
+                        </select>
+
+                        <span class="error">Item name required</span>
+                    </td>
+                    <td>
+                        <input type="text" id="Qty" class="form-control" />
+                        <span class="error">Valid Qty required</span>
+                    </td>
+                    <td>
+                        <input type="text" id="Price" class="form-control" />
+                        <span class="error">Valid Price required</span>
+                    </td>
+                    <td>
+                        <input type="button" id="add" value="add" class="btn btn-primary" style="padding: 10px 30px" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+        </div>
+        <div id="orderItems" class="tablecontainer">
+
+        </div>
+        <div>
+            <label>Total Amount</label>
+            <input type="text" id="TotalAmount" class="form-control" readonly="readonly" />
+        </div>
+        <div style="padding: 10px 0px; text-align: center">
+            <input id="submit" type="button" value="Save" style="padding: 10px 20px" class="btn btn-primary" />
+        </div>
+    </div>
+}
+
+@section Scripts{
+
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#BillDate').datepicker({ dateFormat: 'dd/MM/yy' }).val();
+            $('#BillDate').datepicker('setDate', new Date());
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('#ReceiverDate').datepicker({ dateFormat: 'dd/MM/yy' }).val();
+            $('#ReceiverDate').datepicker('setDate', new Date());
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+
+            var orderItems = [];
+
+            $('#TotalAmount').val(0);
+            //Add button click function
+            $('#add').click(function () {
+                var isValidItem = true;
+                //Add item to list if valid
+                if ($('#ItemName').val().trim() == '') {
+                    isValidItem = false;
+                    $('#ItemName').siblings('span.error').css('visibility', 'visible');
+                } else {
+                    $('#ItemName').siblings('span.error').css('visibility', 'hidden');
+                }
+
+                if (!($('#Qty').val().trim() != '' && !isNaN($('#Qty').val().trim()))) {
+                    isValidItem = false;
+                    $('#Qty').siblings('span.error').css('visibility', 'visible');
+                } else {
+                    $('#Qty').siblings('span.error').css('visibility', 'hidden');
+                }
+
+                if (!($('#Price').val().trim() != '' && !isNaN($('#Price').val().trim()))) {
+                    isValidItem = false;
+                    $('#Price').siblings('span.error').css('visibility', 'visible');
+                } else {
+                    $('#Price').siblings('span.error').css('visibility', 'hidden');
+                }
+
+                if (isValidItem) {
+                    orderItems.push({
+                        ItemName: $('#ItemName').val().trim(),
+                        Qty: parseInt($('#Qty').val().trim()),
+                        Price: parseFloat($('#Price').val().trim()),
+                        Amount: parseInt($('#Qty').val().trim()) * parseFloat($('#Price').val().trim()),
+
+                    });
+                    //Clear fields
+                    $('#ItemName').val('').focus();
+                    $('#Qty,#Price').val('');
+                }
+                //populate order items
+                GeneratedItemsTable();
+                TotalAmount();
+
+            });
+            //Save button click function
+            $('#submit').click(function () {
+                //validation of order
+                var isAllValid = true;
+                if (orderItems.length == 0) {
+                    $('#orderItems').html('<span style="color:red;">Please add order items</span>');
+                    isAllValid = false;
+                }
+
+                if ($('#InvoiceNo').val().trim() == '') {
+                    $('#InvoiceNo').siblings('span.error').css('visibility', 'visible');
+                    isAllValid = false;
+                }
+                else {
+                    $('#InvoiceNo').siblings('span.error').css('visibility', 'hidden');
+                }
+
+                if ($('#SupplierId').val().trim() == '') {
+                    $('#SupplierId').siblings('span.error').css('visibility', 'visible');
+                    isAllValid = false;
+                }
+                else {
+                    $('#SupplierId').siblings('span.error').css('visibility', 'hidden');
+                }
+                if ($('#CarringCharge').val().trim() == '') {
+                    $('#CarringCharge').siblings('span.error').css('visibility', 'visible');
+                    isAllValid = false;
+                }
+                else {
+                    $('#CarringCharge').siblings('span.error').css('visibility', 'hidden');
+                }
+
+                //Save if valid
+                if (isAllValid) {
+                    var data = {
+                        InvoiceNo: $('#InvoiceNo').val().trim(),
+                        BillDate: $('#BillDate').val().trim(),
+                        SupplierId: $('#SupplierId').val().trim(),
+                        ReceiverDate: $('#ReceiverDate').val().trim(),
+                        CarringCharge: $('#CarringCharge').val().trim(),
+                        TotalAmount: $('#TotalAmount').val().trim(),
+                        PurchaseItems: orderItems
+                        //OrderDetails: orderItems
+                    }
+
+                    $(this).val('Please wait...');
+
+                    $.ajax({
+                        url: '/Stock/SaveOrder',
+                        type: "POST",
+                        data: JSON.stringify(data),
+                        dataType: "JSON",
+                        contentType: "application/json",
+                        success: function (d) {
+                            //check is successfully save to database
+                            if (d.status == "Yes") {
+                                //will send status from server side
+                                var url = "/Stock/Details";
+                                window.location.href = url;
+                            } else if (d.status == "Exists") {
+                                alert('Already Exists');
+                                var url = "/Stock/Index";
+                                window.location.href = url;
+                            }
+                            else {
+                                alert('Failed');
+                            }
+                            $('#submit').val('Save');
+                        },
+                        error: function () {
+                            alert('Error. Please try again.');
+                            $('#submit').val('Save');
+                        }
+                    });
+                }
+
+            });
+
+
+            //function for show added items in table
+            function GeneratedItemsTable() {
+                if (orderItems.length > 0) {
+
+
+                    var $table = $('<table class="display table table-bordered table-hover"/>');
+                    $table.append('<thead><tr><th>Item</th><th>Qty</th><th>Price</th><th>Amount</th><th></th></tr></thead>');
+                    var $tbody = $('<tbody/>');
+                    $.each(orderItems, function (i, val) {
+                        var $row = $('<tr/>');
+                        $row.append($('<td/>').html(val.ItemName));
+                        $row.append($('<td/>').html(val.Qty));
+                        $row.append($('<td/>').html(val.Price));
+                        $row.append($('<td/>').html(val.Amount));
+                        var $remove = $('<a href="#">Remove</a>');
+                        $remove.click(function (e) {
+                            e.preventDefault();
+                            orderItems.splice(i, 1);
+                            GeneratedItemsTable();
+                            TotalAmount();
+                        });
+                        $row.append($('<td/>').html($remove));
+                        $tbody.append($row);
+
+
+                    });
+                    console.log("current", orderItems);
+                    $table.append($tbody);
+                    $('#orderItems').html($table);
+                } else {
+                    $('#orderItems').html('');
+                }
+            }
+            function TotalAmount() {
+                if (orderItems.length > 0) {
+                    var totalAmount = 0.0;
+                    $.each(orderItems, function (i, val) {
+                        totalAmount = totalAmount + val.Amount;
+                    });
+
+                    $('#TotalAmount').val(totalAmount);
+                } else {
+                    $('#TotalAmount').val(0);
+                }
+            }
+        });
+
+    </script>
+}
+<style>
+    span.error {
+        display: block;
+        visibility: hidden;
+        color: red;
+        font-size: 90%;
+    }
+</style>

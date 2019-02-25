@@ -1,0 +1,141 @@
+﻿@{
+    ViewBag.Title = "Update";
+}
+@using StockInventorySystem.Models
+<link type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+@model Purchase
+<h2>Update</h2>
+@using (Html.BeginForm())
+{
+    <div>
+        <table>
+            <tr>
+
+                <td>@Html.LabelFor(m => m.InvoiceNo)</td>
+                <td>@Html.DropDownListFor(m => m.InvoiceNo, new SelectList(ViewBag.InvoiceId, "InvoiceNo", "InvoiceNo"), "Select ", new { @class = "form-control" })</td>
+                <td><span class="error">Supplier name required</span></td>
+
+            </tr>
+
+        </table>
+        <div class="form-group">
+            <table>
+                <tr>
+                    <td>@Html.LabelFor(m => m.BillDate)</td>
+                    <td>@Html.TextBoxFor(m => m.BillDate, new {@class = "form-control", @placeholder = "Pick a Date", @readonly = "readonly"})</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.SupplierId)</td>
+                    <td>@Html.DropDownListFor(m => m.SupplierId, new SelectList(ViewBag.Supplier, "Id", "SupplierName"), "Select ", new {@class = "form-control"})</td>
+
+                </tr>
+                <tr>
+
+                    <td>@Html.LabelFor(m => m.ReceiverDate)</td>
+                    <td>@Html.TextBoxFor(m => m.ReceiverDate, new {@class = "form-control", @placeholder = "Pick a Date", @readonly = "readonly"})</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.CarringCharge)</td>
+                    <td>@Html.TextBoxFor(m => m.CarringCharge, new {@class = "form-control"}) </td>
+                </tr>
+
+            </table>
+            <table id="" class="display table table-bordered table-hover" cellspacing="1">
+                <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Qty</th>
+                    <th>Price</th>
+                    <th>Amount</th>
+
+                </tr>
+                </thead>
+
+                <tbody id="tableBody"></tbody>
+
+            </table>
+            @Html.LabelFor(m=>m.TotalAmount)
+            @Html.TextBoxFor(m=>m.TotalAmount,new{@class="form-control", @readonly="readonly"})
+        </div>
+
+    </div>
+
+}
+@section scripts
+{
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+    @*<script src="~/Scripts/jquery-ui-1.12.0.js"></script>*@
+    <script type="text/javascript">
+        $(function () {
+            $('#BillDate').datepicker({ dateFormat: 'dd/MM/yy' }).val();
+            $('#BillDate').datepicker('setDate', new Date());
+        });
+    </script>
+<script type="text/javascript">
+    $(function () {
+        $('#ReceiverDate').datepicker({ dateFormat: 'dd/MM/yy' }).val();
+        $('#ReceiverDate').datepicker('setDate', new Date());
+    });
+</script>
+
+    <script>
+
+        $(document).ready(function() {
+
+
+            $("#InvoiceNo").change(function() {
+                var invoiceNo = $("#InvoiceNo").val();
+
+
+                $("#CarringCharge").val("");
+                $("#BillDate").val("");
+                $("#ReceiverDate").val("");
+                //$("#SupplierId").val("");
+                $("#TotalAmount").val("");
+                $("#tableBody").empty();
+                var json = { invoiceNo: invoiceNo };
+                $.ajax({
+                    type: "POST",
+
+                    url: '/Stock/GetAllPurchaseItem',
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(json),
+                    success: function(data) {
+                        $.each(data, function(key, value) {
+
+                            //$("#CarringCharge").val(value.CarringCharge);
+                            $("#BillDate").val(toJavaScriptDate(value.BillDate));
+                            $("#ReceiverDate").val(toJavaScriptDate(value.ReceiverDate));
+                            $("#CarringCharge").val(value.CarringCharge);
+                            $("#TotalAmount").val(value.TotalAmount);
+                            for (var i = 0; i < value.PurchaseItems.length; i++) {
+                                $("#tableBody").append('<tr><td>' + value.PurchaseItems[i].ItemName + '</td><td>' + value.PurchaseItems[i].Qty + '</td><td>' + value.PurchaseItems[i].Price + '</td><td>' + value.PurchaseItems[i].Amount + '</td><td><a class="edit" href="#">Edit</a></td></tr>');
+                            }
+
+                        });
+
+                    }
+                });
+            });
+
+            function toJavaScriptDate(value) {
+                var pattern = /Date\(([^)]+)\)/;
+                var results = pattern.exec(value);
+                var dt = new Date(parseFloat(results[1]));
+                return (dt.getMonth() + 1) + "/" + dt.getDate() + "/" + dt.getFullYear();
+            }
+        });
+
+    </script>
+    <script language="javascript" type="text/javascript">
+    $(document).ready(function () {
+        $('#tableBody').dataTable().makeEditable();
+    });
+</script>
+
+}
+

@@ -1,0 +1,144 @@
+﻿@{
+    ViewBag.Title = "Delete";
+}
+
+@using StockInventorySystem.Models
+<link type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+@model Purchase
+<h2 align="center">Delete Stock Item From Supplier</h2>
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <table>
+            <tr>
+
+                <td>@Html.LabelFor(m => m.InvoiceNo):&nbsp;</td>
+                <td>@Html.DropDownListFor(m => m.InvoiceNo, new SelectList(ViewBag.InvoiceId, "InvoiceNo", "InvoiceNo"), "Select ", new { @class = "form-control" })</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.BillDate):&nbsp;</td>
+                <td>@Html.TextBoxFor(m => m.BillDate, new { @class = "form-control", @placeholder = "Pick a Date", @readonly = "readonly" })</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.SupplierName):&nbsp;</td>
+                <td>@Html.TextBoxFor(m => m.SupplierName, new { @class = "form-control", @readonly = "readonly" })</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.ReceiverDate):&nbsp;</td>
+                <td>@Html.TextBoxFor(m => m.ReceiverDate, new { @class = "form-control", @placeholder = "Pick a Date", @readonly = "readonly" })</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.CarringCharge):&nbsp;</td>
+                <td>@Html.TextBoxFor(m => m.CarringCharge, new { @class = "form-control", @readonly = "readonly" }) </td>
+            </tr>
+
+        </table>
+        <table id="" class="display table table-bordered table-hover" cellspacing="1">
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Qty</th>
+                    <th>Price</th>
+                    <th>Amount</th>
+
+                </tr>
+            </thead>
+
+            <tbody id="tableBody"></tbody>
+
+        </table>
+        @Html.LabelFor(m => m.TotalAmount)
+        @Html.TextBoxFor(m => m.TotalAmount, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    @Html.HiddenFor(m => m.Id)
+    <div style="padding: 10px 0px; text-align: center">
+        <button type="submit" class="btn btn-primary" value="save" style="width: 110px;" onclick="return Assure()">Delete</button>
+    </div>
+}
+@if (ViewBag.Message == "Yes")
+{
+
+    <div class="alert alert-success">
+        <h4>Successfully deleted.</h4>
+    </div>
+}
+else if (ViewBag.Message == "No")
+{
+    <div class="alert alert-success">
+        <h4>Failed To Delete.</h4>
+    </div>
+}
+@section scripts
+{
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script>
+        function Assure() {
+            return confirm(" Are you Sure to delete?");
+
+        }
+    </script>
+
+
+
+    <script>
+
+        $(document).ready(function () {
+
+
+            $("#InvoiceNo").change(function () {
+                var invoiceNo = $("#InvoiceNo").val();
+
+
+                $("#CarringCharge").val("");
+                $("#BillDate").val("");
+                $("#ReceiverDate").val("");
+                $("#SupplierName").val("");
+                $("#TotalAmount").val("");
+                $("#Id").val("");
+                $("#tableBody").empty();
+                var json = { invoiceNo: invoiceNo };
+                $.ajax({
+                    type: "POST",
+
+                    url: '/Stock/GetAllPurchaseItem',
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(json),
+                    success: function (data) {
+                        $.each(data, function (key, value) {
+
+                            //$("#CarringCharge").val(value.CarringCharge);
+                            $("#BillDate").val(toJavaScriptDate(value.BillDate));
+                            $("#ReceiverDate").val(toJavaScriptDate(value.ReceiverDate));
+                            $("#CarringCharge").val(value.CarringCharge);
+                            $("#SupplierName").val(value.SupplierName);
+                            $("#TotalAmount").val(value.TotalAmount);
+                            $("#Id").val(value.Id);
+                            for (var i = 0; i < value.PurchaseItems.length; i++) {
+                                $("#tableBody").append('<tr><td>' + value.PurchaseItems[i].ItemName + '</td><td>' + value.PurchaseItems[i].Qty + '</td><td>' + value.PurchaseItems[i].Price + '</td><td>' + value.PurchaseItems[i].Amount + '</td></tr>');
+                            }
+
+                        });
+
+                    }
+                });
+            });
+
+            function toJavaScriptDate(value) {
+                var pattern = /Date\(([^)]+)\)/;
+                var results = pattern.exec(value);
+                var dt = new Date(parseFloat(results[1]));
+                return (dt.getMonth() + 1) + "/" + dt.getDate() + "/" + dt.getFullYear();
+            }
+        });
+
+    </script>
+
+}
+
+
+
+
+

@@ -1,0 +1,332 @@
+﻿@{
+    ViewBag.Title = "Save";
+}
+@using StockInventorySystem.Models
+@model StockInventorySystem.Models.Sell
+
+<link type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+
+<h2 align="center">Customer Invoice Sheet</h2>
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <h4>Order details</h4>
+        <table>
+            <tr>
+                <td>@Html.LabelFor(m => m.BillNo)</td>
+                <td>@Html.TextBoxFor(m => m.BillNo, new { @class = "form-control", @readonly = "readonly", Value = ViewBag.BillNo, type = "string" })</td>
+
+
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>@Html.LabelFor(m => m.Date)</td>
+                <td>@Html.TextBoxFor(m => m.Date, new { @class = "form-control", @placeholder = "Pick a Date", @readonly = "readonly" })</td>
+
+
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>@Html.LabelFor(m => m.Name)</td>
+                <td>@Html.TextBoxFor(m => m.Name, new { @class = "form-control"})
+                    <span class="error">Please Enter a Name</span></td>
+
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.MobileNo)</td>
+                <td>@Html.TextBoxFor(m => m.MobileNo, new { @class = "form-control" })
+                    <span class="error">Please a Enter Mobile Number</span></td>
+
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.Email)</td>
+                <td>@Html.TextBoxFor(m => m.Email, new {@class = "form-control"}) 
+                    <span class="error">Please Enter a Email</span></td>
+            </tr>
+            
+        </table>
+    </div>
+    <div class="details">
+        <h4>Order Items</h4>
+        <div>
+            <table width="100%">
+                <tr>
+                    <th>Item Name</th>
+                    <th>Supplier Name</th>
+                    <th>Qty</th>
+                    <th>Price</th>
+                    <th>&nbsp;</th>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="ItemName" class="form-control">
+
+                            @foreach (Item option in ViewBag.Items)
+                            {
+                                <option value="@option.ItemName" @(option.Id == ViewBag.ValueToSet ? "selected='selected'" : "")>@option.ItemName</option>
+
+                            }
+                        </select>
+                        <span class="error">Item name required</span>
+                    </td>
+                    <td>
+                        <select id="SupplierName" class="form-control">
+
+                            @foreach (Supplier option in ViewBag.Supplier)
+                            {
+                                <option value="@option.Id" @(option.Id == ViewBag.ValueToSet ? "selected='selected'" : "")>@option.SupplierName</option>
+
+                            }
+                        </select>
+
+                        <span class="error">Item name required</span>
+                    </td>
+                    <td>
+                        <input type="text" id="Qty" class="form-control" />
+                        <span class="error">Valid Qty required</span>
+                    </td>
+                    <td>
+                        <input type="text" id="Price" class="form-control" />
+                        <span class="error">Valid Price required</span>
+                    </td>
+                    <td>
+                        <input type="button" id="add" value="add" class="btn btn-primary" style="padding: 10px 30px" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+        </div>
+        <div id="orderItems" class="tablecontainer">
+
+        </div>
+        <div>
+            <label>Total Amount</label>
+            <input type="text" id="TotalAmount" class="form-control"  readonly="readonly" />
+        </div>
+        <div style="padding: 10px 0px; text-align: center">
+            <input id="submit" type="button" value="Save" style="padding: 10px 20px" class="btn btn-primary" />
+        </div>
+    </div>
+}
+
+@section Scripts{
+
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#Date').datepicker({ dateFormat: 'dd/MM/yy' }).val();
+            $('#Date').datepicker('setDate', new Date());
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+
+            var orderItems = [];
+            //Add button click function
+            $('#add').click(function () {
+                var isValidItem = true;
+                //Add item to list if valid
+                if ($('#ItemName').val().trim() == '') {
+                    isValidItem = false;
+                    $('#ItemName').siblings('span.error').css('visibility', 'visible');
+                } else {
+                    $('#ItemName').siblings('span.error').css('visibility', 'hidden');
+                }
+
+                if (!($('#Qty').val().trim() != '' && !isNaN($('#Qty').val().trim()))) {
+                    isValidItem = false;
+                    $('#Qty').siblings('span.error').css('visibility', 'visible');
+                } else {
+                    $('#Qty').siblings('span.error').css('visibility', 'hidden');
+                }
+
+                if (!($('#Price').val().trim() != '' && !isNaN($('#Price').val().trim()))) {
+                    isValidItem = false;
+                    $('#Price').siblings('span.error').css('visibility', 'visible');
+                } else {
+                    $('#Price').siblings('span.error').css('visibility', 'hidden');
+                }
+
+                if (isValidItem) {
+                    var data={
+                        ItemName: $('#ItemName').val().trim(),
+                        SupplierId:$('#SupplierName').val().trim(),
+                        Qty: parseInt($('#Qty').val().trim()),
+                        Price: parseFloat($('#Price').val().trim()),
+                        Amount: parseInt($('#Qty').val().trim()) * parseFloat($('#Price').val().trim()),
+                       
+                    } ;
+                    //var SellItems = orderItems;
+                
+                    $.ajax({
+                        url: '/Sell/CheckItem',
+                        type: "POST",
+                        data: JSON.stringify(data),
+                        dataType: "JSON",
+                        contentType: "application/json",
+                        success: function (d) {
+                            //check is successfully save to database
+                            if (d.status == "yes") {
+                                $('#ItemName').val('').focus();
+                                $('#Qty,#Price').val('');
+                                orderItems.push(data);
+                                GeneratedItemsTable();
+                                TotalAmount();
+                            } else if (d.status == "no") {
+                                alert('Out of Stock');
+                                
+                            }
+                            else {
+                                alert('Failed');
+                            }
+                            $('#add').val('Add');
+                        },
+                        error: function () {
+                            alert('Error. Please try again.');
+                            $('#add').val('Add');
+                        }
+                    });
+             
+                }
+
+            });
+            //Save button click function
+            $('#submit').click(function () {
+                //validation of order
+                var isAllValid = true;
+                if (orderItems.length == 0) {
+                    $('#orderItems').html('<span style="color:red;">Please add order items</span>');
+                    isAllValid = false;
+                }
+
+                if ($('#BillNo').val().trim() == '') {
+                    $('#BillNo').siblings('span.error').css('visibility', 'visible');
+                    isAllValid = false;
+                }
+                else {
+                    $('#BillNo').siblings('span.error').css('visibility', 'hidden');
+                }
+
+                if ($('#Name').val().trim() == '') {
+                    $('#Name').siblings('span.error').css('visibility', 'visible');
+                    isAllValid = false;
+                }
+                else {
+                    $('#Name').siblings('span.error').css('visibility', 'hidden');
+                }
+                if ($('#Email').val().trim() == '') {
+                    $('#Email').siblings('span.error').css('visibility', 'visible');
+                    isAllValid = false;
+                }
+                else {
+                    $('#Email').siblings('span.error').css('visibility', 'hidden');
+                }
+                if ($('#MobileNo').val().trim() == '') {
+                    $('#MobileNo').siblings('span.error').css('visibility', 'visible');
+                    isAllValid = false;
+                }
+                else {
+                    $('#MobileNo').siblings('span.error').css('visibility', 'hidden');
+                }
+
+                //Save if valid
+                if (isAllValid) {
+                    var data = {
+                        BillNo: $('#BillNo').val().trim(),
+                        Date: $('#Date').val().trim(),
+                        Name: $('#Name').val().trim(),
+                        Email: $('#Email').val().trim(),
+                        MobileNo: $('#MobileNo').val().trim(),
+                        TotalAmount: $('#TotalAmount').val().trim(),
+                        SellItemses: orderItems
+                        //OrderDetails: orderItems
+                    }
+
+                    $(this).val('Please wait...');
+
+                    $.ajax({
+                        url: '/Sell/SaveOrder',
+                        type: "POST",
+                        data: JSON.stringify(data),
+                        dataType: "JSON",
+                        contentType: "application/json",
+                        success: function (d) {
+                            //check is successfully save to database
+                            if (d.status == "Yes") {
+                                //will send status from server side
+                                var url = "/Sell/Successful";
+                                window.location.href = url;
+                            } else if (d.status == "Exists") {
+                                alert('Already exists');
+                                
+                            }
+                            else {
+                                alert('Failed');
+                            }
+                            $('#submit').val('Save');
+                        },
+                        error: function () {
+                            alert('Error. Please try again.');
+                            $('#submit').val('Save');
+                        }
+                    });
+                }
+
+            });
+            //function for show added items in table
+            function GeneratedItemsTable() {
+                if (orderItems.length > 0) {
+                    var $table = $('<table class="display table table-bordered table-hover"/>');
+                    $table.append('<thead><tr><th>Item</th><th>Qty</th><th>Price</th><th>Amount</th><th></th></tr></thead>');
+                    var $tbody = $('<tbody/>');
+                    $.each(orderItems, function (i, val) {
+                        var $row = $('<tr/>');
+                        $row.append($('<td/>').html(val.ItemName));
+                        $row.append($('<td/>').html(val.Qty));
+                        $row.append($('<td/>').html(val.Price));
+                        $row.append($('<td/>').html(val.Amount));
+                        var $remove = $('<a href="#">Remove</a>');
+
+                        $remove.click(function (e) {
+                            e.preventDefault();
+                            orderItems.splice(i, 1);
+                            GeneratedItemsTable();
+                            TotalAmount();
+                        });
+                        $row.append($('<td/>').html($remove));
+                        $tbody.append($row);
+                        
+                    });
+
+                    console.log("current", orderItems);
+                    $table.append($tbody);
+                    $('#orderItems').html($table);
+
+                } else {
+                    $('#orderItems').html('');
+                }
+            }
+            function TotalAmount() {
+                if (orderItems.length > 0) {
+                    var totalAmount = 0.0;
+                    $.each(orderItems, function (i, val) {
+                        totalAmount = totalAmount + val.Amount;
+                    });
+
+                    $('#TotalAmount').val(totalAmount);
+                } else {
+                    $('#TotalAmount').val(0);
+                }
+            }
+        });
+
+    </script>
+}
+<style>
+    span.error {
+        display: block;
+        visibility: hidden;
+        color: red;
+        font-size: 90%;
+    }
+</style>

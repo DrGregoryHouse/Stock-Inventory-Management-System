@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Details";
+}
+
+<h2 style="text-align: center">Successfully Saved Items. </h2>
+<table style="margin: 0px auto">
+    <tr>
+         
+        <td>Invoice No:</td>
+        <td style="font-weight: bold">: @ViewBag.NestId</td>
+    </tr>
+</table>
+@using (Html.BeginForm())
+{
+    <div style="padding: 10px 0px; text-align: center">
+        <td style="margin-left: 9px;">@Html.ActionLink("Generate Pdf", "GeneratePdf", "Stock",new {@class="btn btn-primary",@target="_blank"})</td>
+        <td style="margin-left: 9px;">@Html.ActionLink("New", "Index", "Stock",new {@class="btn btn-primary"})</td>
+    </div>
+}
+

@@ -1,0 +1,168 @@
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\obj\Debug\StockInventorySystem.csprojResolveAssemblyReference.cache
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\StockInventorySystem.dll.config
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\StockInventorySystem.dll
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\StockInventorySystem.pdb
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\Antlr3.Runtime.dll
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\EntityFramework.dll
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\EntityFramework.SqlServer.dll
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\Microsoft.AspNet.Identity.Core.dll
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.dll
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.Cookies.dll
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.dll
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.Facebook.dll
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.Google.dll
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.OAuth.dll
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.Twitter.dll
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\Microsoft.Web.Infrastructure.dll
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\Newtonsoft.Json.dll
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\Owin.dll
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\System.Web.Helpers.dll
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\System.Web.Mvc.dll
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\System.Web.Optimization.dll
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\System.Web.Razor.dll
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\System.Web.WebPages.Deployment.dll
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\System.Web.WebPages.dll
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\System.Web.WebPages.Razor.dll
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\WebGrease.dll
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\System.Web.Helpers.xml
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\System.Web.Mvc.xml
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\System.Web.Optimization.xml
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\System.Web.Razor.xml
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\System.Web.WebPages.xml
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\System.Web.WebPages.Deployment.xml
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\System.Web.WebPages.Razor.xml
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\Newtonsoft.Json.xml
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\Antlr3.Runtime.pdb
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\EntityFramework.xml
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\EntityFramework.SqlServer.xml
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\Microsoft.AspNet.Identity.Core.xml
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.xml
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.xml
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.Facebook.xml
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.Cookies.xml
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.OAuth.xml
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.Google.xml
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.Twitter.xml
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\obj\Debug\StockInventorySystem.dll
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\obj\Debug\StockInventorySystem.pdb
+E:\Important files\Tutorial\BITM Web App develop dot net\Practice\StockInventorySystem\StockInventorySystem\bin\Rotativa.dll
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\StockInventorySystem.dll.config
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\StockInventorySystem.dll
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\StockInventorySystem.pdb
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Antlr3.Runtime.dll
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\EntityFramework.dll
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\EntityFramework.SqlServer.dll
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.AspNet.Identity.Core.dll
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.dll
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.Cookies.dll
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.dll
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.Facebook.dll
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.Google.dll
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.OAuth.dll
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.Twitter.dll
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Web.Infrastructure.dll
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Newtonsoft.Json.dll
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Owin.dll
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Rotativa.dll
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\System.Web.Helpers.dll
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\System.Web.Mvc.dll
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\System.Web.Optimization.dll
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\System.Web.Razor.dll
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\System.Web.WebPages.Deployment.dll
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\System.Web.WebPages.dll
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\System.Web.WebPages.Razor.dll
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\WebGrease.dll
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\System.Web.Helpers.xml
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\System.Web.Mvc.xml
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\System.Web.Optimization.xml
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\System.Web.Razor.xml
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\System.Web.WebPages.xml
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\System.Web.WebPages.Deployment.xml
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\System.Web.WebPages.Razor.xml
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Newtonsoft.Json.xml
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Antlr3.Runtime.pdb
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\EntityFramework.xml
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\EntityFramework.SqlServer.xml
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.AspNet.Identity.Core.xml
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.xml
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.xml
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.Facebook.xml
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.Cookies.xml
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.OAuth.xml
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.Google.xml
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.Twitter.xml
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\obj\Debug\StockInventorySystem.csprojResolveAssemblyReference.cache
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\obj\Debug\StockInventorySystem.dll
+F:\Important files\Tutorial\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\obj\Debug\StockInventorySystem.pdb
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\StockInventorySystem.dll.config
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\StockInventorySystem.dll
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\StockInventorySystem.pdb
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Antlr3.Runtime.dll
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\EntityFramework.dll
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\EntityFramework.SqlServer.dll
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.AspNet.Identity.Core.dll
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.dll
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.Cookies.dll
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.dll
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.Facebook.dll
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.Google.dll
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.OAuth.dll
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.Twitter.dll
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Web.Infrastructure.dll
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Newtonsoft.Json.dll
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Owin.dll
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Rotativa.dll
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\System.Web.Helpers.dll
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\System.Web.Mvc.dll
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\System.Web.Optimization.dll
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\System.Web.Razor.dll
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\System.Web.WebPages.Deployment.dll
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\System.Web.WebPages.dll
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\System.Web.WebPages.Razor.dll
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\WebGrease.dll
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\System.Web.Helpers.xml
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\System.Web.Mvc.xml
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\System.Web.Optimization.xml
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\System.Web.Razor.xml
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\System.Web.WebPages.xml
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\System.Web.WebPages.Deployment.xml
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\System.Web.WebPages.Razor.xml
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Newtonsoft.Json.xml
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Antlr3.Runtime.pdb
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\EntityFramework.xml
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\EntityFramework.SqlServer.xml
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.AspNet.Identity.Core.xml
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.xml
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.xml
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.Facebook.xml
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.Cookies.xml
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.OAuth.xml
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.Google.xml
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.Twitter.xml
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\obj\Debug\StockInventorySystem.csprojResolveAssemblyReference.cache
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\obj\Debug\StockInventorySystem.dll
+E:\Project\BITM Web App develop dot net\Project\StockInventorySystem\StockInventorySystem\obj\Debug\StockInventorySystem.pdb
